@@ -1,0 +1,47 @@
+set -aeuo pipefail
+source .env
+
+options=""
+services=""
+
+cd laradock
+
+case $* in
+    up)
+        services="$DOCKER_CONTAINERS"
+        options="-d"
+        ;;
+    down)
+        echo "This will stop and remove containers and networks. Volumes and images are optional"
+        echo 'Remove volumes? y/n'
+        read remove_volumes
+
+        if [ $remove_volumes = 'y' ] || [ $remove_volumes = 'yes' ]
+        then
+            options="-v"
+        fi
+
+        echo 'Remove images? y/n'
+        read remove_images
+
+        if [ $remove_images = 'y' ] || [ $remove_images = 'yes' ]
+        then
+            options="$options --rmi all"
+        fi
+        ;;
+    rebuild)
+        docker-compose -p $APP_NAME down -v -rmi 'all'
+        docker-compose -p $APP_NAME up -d --build $DOCKER_CONTAINERS php-fpm
+        exit
+        ;;
+    start | stop | logs | ps | top)
+        ;;
+    restart)
+        services="$DOCKER_CONTAINERS"
+        ;;
+    *)
+        echo -e "Available options: up down rebuild start stop logs ps top"
+        exit
+esac
+
+docker-compose -p $APP_NAME $@ $options $services
