@@ -1,4 +1,4 @@
 set -aeuo pipefail
-source src/.env
+source .env
 
-docker exec -it $APP_NAME"_mysql_1" mysql -u root -proot $DB_DATABASE
+( cd laradock ; docker-compose -p $APP_NAME exec mysql mysql -u root -proot $DB_DATABASE )

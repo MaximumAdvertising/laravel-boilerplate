@@ -1,1 +1,0 @@
-1) Move certs of out of src
