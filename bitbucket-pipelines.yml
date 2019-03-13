@@ -21,3 +21,4 @@ pipelines:
           script:
             # DO NOT FORGET ADD PRODUCTION SERVER SSH KEY TO PROJECT KEY
             -  deployment/staging/deploy.sh
+            -  deployment/production/notify-sentry-of-release.bash
