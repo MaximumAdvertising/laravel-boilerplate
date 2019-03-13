@@ -25,10 +25,10 @@ printf "Installing Containers"
 
 #If --no-cache option passed regenerate all docker containers
 if  [[ ${1-} = "--no-cache" ]]; then
-    docker-compose -p $APP_NAME build --no-cache php-fpm mysql redis elasticsearch workspace
+    docker-compose -p $APP_NAME build --no-cache php-fpm mysql elasticsearch workspace
 fi
 
-docker-compose -p $APP_NAME up -d mysql redis elasticsearch workspace
+docker-compose -p $APP_NAME up -d mysql elasticsearch workspace
 
 printf "Generating self-signed SSL certificate for local development"
 docker exec -ti $APP_NAME"_workspace_1" openssl req -x509 -sha256 -newkey rsa:2048 -keyout certs/local.key -out certs/local.pem -days 1024 -nodes -subj '/CN=localhost'
