@@ -158,13 +158,14 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
         /*
         * Manual Service Providers
          */
-        Spatie\Permission\PermissionServiceProvider::class,
-       'Fideloper\Proxy\TrustedProxyServiceProvider',
+        'Fideloper\Proxy\TrustedProxyServiceProvider',
+        Clockwork\Support\Laravel\ClockworkServiceProvider::class,
 
 
     ],
