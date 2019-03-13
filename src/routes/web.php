@@ -10,10 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Authentication logic routes
+Auth::routes();
+
+// Public route example
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
+// Protected route example
 Route::get('/home', 'HomeController@index')->name('home');
