@@ -10,7 +10,7 @@ currently Laravel Boilerplate 5.8 Included
 * Laravel 5.8
 * Most used docker-containers with lots of dependencies (Credits and many thanks to [Laradock](https://github.com/laradock/laradock) as it is simplified version of laradock)
 * Local SSL and HTTPS using openssl
-* [Fideloper Proxy](https://github.com/fideloper/proxy)
+* [Sentry](https://github.com/getsentry/sentry-laravel) package for error tracking 
 
 
 ## Installation
