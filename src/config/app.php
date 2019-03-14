@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Shanghai',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,7 +163,6 @@ return [
         /*
         * Manual Service Providers
          */
-        'Fideloper\Proxy\TrustedProxyServiceProvider',
         Clockwork\Support\Laravel\ClockworkServiceProvider::class,
 
 
