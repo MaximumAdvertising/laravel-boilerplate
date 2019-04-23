@@ -21,7 +21,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', '{{ env('GA_TRACKING_ID', 'UA-55899159-50') }}', { 'anonymize_ip': true, 'sample_rate': 20 });
+        gtag('config', '{{ env('GA_TRACKING_ID', 'UA-55899159-50') }}', { 'anonymize_ip': true });
     </script>
 </head>
 <body>
