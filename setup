@@ -45,5 +45,17 @@ docker exec -u laradock -it $APP_NAME"_workspace_1" composer update --prefer-dis
 printf "Generating Application Key"
 docker exec -it $APP_NAME"_workspace_1" php artisan key:generate
 
+#link local storage directory
+printf "Creating storage symlink"
+docker exec -it $APP_NAME"_workspace_1" php artisan storage:link
+
+#run migrations
+printf "Running migrations"
+docker exec -it $APP_NAME"_workspace_1" php artisan migrate
+
+#run db seeder
+printf "Seeding database"
+docker exec -it $APP_NAME"_workspace_1" php artisan db:seed
+
 printf "Installing npm packages"
 docker exec -it $APP_NAME"_workspace_1" npm install
