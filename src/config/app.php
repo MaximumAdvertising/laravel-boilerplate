@@ -164,6 +164,7 @@ return [
         * Manual Service Providers
          */
         Clockwork\Support\Laravel\ClockworkServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
 
 
     ],
