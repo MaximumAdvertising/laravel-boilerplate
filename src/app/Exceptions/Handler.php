@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use App\Services\SentryService;
 
 class Handler extends ExceptionHandler
 {
@@ -39,10 +40,8 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        if (app()->bound('sentry') && $this->shouldReport($exception)) {
-            if (!config('app.debug') && app()->environment('production')) {
-                app('sentry')->captureException($exception);
-            }
+        if ($this->shouldReport($exception)) {
+            SentryService::captureError($exception);
         }
 
         parent::report($exception);
