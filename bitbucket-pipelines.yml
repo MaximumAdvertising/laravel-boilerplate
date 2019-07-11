@@ -6,6 +6,7 @@ definitions:
         name: Test
         image: phpunit/phpunit:6.5.3
         script:
+          - apk add --update php7-gd
           - cd 'src/'
           - php -r "file_exists('.env') || copy('.env.example', '.env');"
           - composer install
