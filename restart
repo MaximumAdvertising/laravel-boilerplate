@@ -3,5 +3,5 @@ source src/.env
 
 cd docker
 #run docker-compose containers
-docker-compose -p $APP_NAME restart nginx mysql redis elasticsearch workspace
+docker-compose -p $APP_NAME restart nginx mysql elasticsearch workspace
 
